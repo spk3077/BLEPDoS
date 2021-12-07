@@ -4,6 +4,7 @@ Requires ROOT PRIV
 
 ## Depenedencies
 sudo apt-get install python3-pip libglib2.0-dev
+
 sudo pip3 install bluepy
 
 ## Install
