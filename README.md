@@ -19,7 +19,7 @@ Device should be using BlueZ Bluetooth Protocol Stack
 Python3.6.8 or above
 
 ## Install
-git clone 
+git clone https://github.com/spk3077/BLEPDoS
 
 ## Running
 Requires ROOT PRIV
