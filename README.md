@@ -2,7 +2,7 @@
 
 ## BLEPDoS
 
-BLEPDoS is comprised of two denial of service attacks against Bluetooth LE (Low Power) that being Bluessmack and a reinvented attack found in the paper https://dl.acm.org/doi/pdf/10.1145/2851613.2851685.
+BLEPDoS is comprised of two denial of service attacks against Bluetooth LE (Low Power) that being BlueSmack and our reinvented attack, BlueChar, found in the paper https://dl.acm.org/doi/pdf/10.1145/2851613.2851685.
 
 ### BlueSmack
 Three arguments: (string) target MAC (int) Thread Number (int) Packet Size
