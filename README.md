@@ -18,7 +18,7 @@ BlueChar attack is an undocumented type of attack (which we decidedly named Blue
 
 This attack is carried out using a bluetoothctl wrapper based on Egor Fedorov's with improvements expanding slightly to parts of the GATT menu.
 
-## Depenedencies
+## Dependencies
 Device should be using BlueZ Bluetooth Protocol Stack
 
 Python3.6.8 or above
