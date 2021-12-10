@@ -6,18 +6,21 @@ BLEPDoS is comprised of two denial of service attacks against Bluetooth LE (Low 
 
 ### BlueSmack
 Three arguments: (string) target MAC (int) Thread Number (int) Packet Size
+
 BlueSmack attack is a type of 'ping attack' which involves swarming the slave Bluetooth LE device with a large number of L2CAP echo requests to temporarily disable the slave device from connecting.
 
 This attack is carried out using l2ping.
 
 ### BlueChar
 One argument: (string) target MAC
+
 BlueChar attack is an undocumented type of attack (which we decidedly named BlueChar) which involves swarming the slave Bluetooth LE with connection and read characteristics.
 
 This attack is carried out using a bluetoothctl wrapper based on Egor Fedorov's with improvements expanding slightly to parts of the GATT menu.
 
 ## Depenedencies
 Device should be using BlueZ Bluetooth Protocol Stack
+
 Python3.6.8 or above
 
 ## Install
