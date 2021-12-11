@@ -23,6 +23,12 @@ Device should be using BlueZ Bluetooth Protocol Stack
 
 Python3.6.8 or above
 
+## Setting Raspberry PI(VICTIM) for BlueChar Attack
+    bluetoothctl
+    advertise off
+    advertise peripheral
+    discoverable on # Note if you take too long, you will need to do this again
+    
 ## Install
 git clone https://github.com/spk3077/BLEPDoS
 
@@ -36,5 +42,5 @@ sudo python3 BLEPDOS.py (optional arguments)
 
     sys.argv[1]: target <Device Name/MAC Address>
     sys.argv[2]: Attack Type <1 (pairing)  /  2 (l2ping)>
-    sys.argv[3]: Thread Number
+    sys.argv[3]: Thread/Process Number
     sys.argv[4]: Packet size
