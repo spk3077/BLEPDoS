@@ -36,12 +36,18 @@ Python3.6.8 or above
 ## Setting Up Vulnerable Raspberry PI(VICTIM) for BlueSmack Attack
     bluetoothctl
     discoverable on # Note if you take too long, you will need to do this again
+    
+    # Seperate CMD
+    sudo tcpdump -i bluetooth0
 
 ## Setting Up Vulnerable Raspberry PI(VICTIM) for BlueChar Attack
     bluetoothctl
     advertise off
     advertise peripheral
     discoverable on # Note if you take too long, you will need to do this again
+    
+    # Seperate CMD
+    sudo tcpdump -i bluetooth0
     
 ## Install
 git clone https://github.com/spk3077/BLEPDoS
