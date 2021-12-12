@@ -14,7 +14,7 @@ This attack is carried out using l2ping.
 ### BlueChar
 One argument: (string) target MAC (int) Number of Processes
 
-BlueChar attack is an undocumented type of attack (which we decidedly named BlueChar) which involves swarming the slave Bluetooth LE connection with read characteristics in multiple processes utilizing the same bluetoothctl wrapper.  NOTE: This deviates from the 'sending multiple connection requests and read characteristics' since there is only one connection being formed.  
+BlueChar attack is an undocumented type of attack (which we decidedly named BlueChar) which involves swarming a singular Bluetooth LE connection with read characteristics in multiple processes utilizing the same bluetoothctl wrapper.  NOTE: This deviates from the 'sending multiple connection requests and read characteristics' since there is only one connection being formed.  
 
 
 ## How does it Work?
