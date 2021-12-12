@@ -16,15 +16,16 @@ One argument: (string) target MAC (int) Number of Processes
 
 BlueChar attack is an undocumented type of attack (which we decidedly named BlueChar) which involves swarming the slave Bluetooth LE connection with read characteristics in multiple processes utilizing the same bluetoothctl wrapper.  NOTE: This deviates from the 'sending multiple connection requests and read characteristics' since there is only one connection being formed.  
 
-This attack is carried out using a bluetoothctl wrapper based on Egor Fedorov's with improvements expanding slightly to parts of the GATT menu.
 
-
-### How does it Work?
+## How does it Work?
 We abuse the peripheral bluetooth controller's fault in that it does not timeout connections formed with attacker after an extended period of time despite not being paired.  Funny enough the bluetooth controller appears to have such a timeout capability if there is no ongoing communication for 10 seconds or more.  We recommend bluetooth chipset manufacturers to implement the timeout to apply to ongoing communicating devices that aren't paired or at the very least provide this secuirty option to mitigate availability attacks.
 
 
 Some Issues:
 It appears that bluetoothctl has a large delay in forming connections and disconnects making it not suitable for avaliability attacks.  The tool connects directly to the controller making multiple syncrhonous connections difficult and slow.  Since gattool is depreciated we can no longer utilize it's quick connection with randomized MACs.
+
+## Bluetoothctl Wrapper
+BOTH attacks are carried out using a bluetoothctl wrapper based on Dan castis's pexpect design https://gist.github.com/castis/0b7a162995d0b465ba9c84728e60ec01.  I introduce new functions to the wrapper for parts of the GATT menu and make modifications on current functions to fit the needs 
 
 
 ## Dependencies
