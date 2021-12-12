@@ -2,7 +2,7 @@
 
 ## BLEPDoS
 
-BLEPDoS is comprised of two denial of service attacks against Bluetooth LE (Low Power) that being BlueSmack and our reinvented attack, BlueChar, found in the paper https://dl.acm.org/doi/pdf/10.1145/2851613.2851685.
+BLEPDoS is comprised of two denial of service attacks against Bluetooth LE (Low Power) that being BlueSmack and our novel attack, BlueChar, which is a deviation of the attack proposed in https://dl.acm.org/doi/pdf/10.1145/2851613.2851685 against Jawbone Health Trackers.
 
 ### BlueSmack
 Three arguments: (string) target MAC (int) Number of Threads (int) Packet Size
@@ -14,16 +14,29 @@ This attack is carried out using l2ping.
 ### BlueChar
 One argument: (string) target MAC (int) Number of Processes
 
-BlueChar attack is an undocumented type of attack (which we decidedly named BlueChar) which involves swarming the slave Bluetooth LE with connection and read characteristics.
+BlueChar attack is an undocumented type of attack (which we decidedly named BlueChar) which involves swarming the slave Bluetooth LE connection with read characteristics in multiple processes utilizing the same bluetoothctl wrapper.  NOTE: This deviates from the 'sending multiple connection requests and read characteristics' since there is only one connection being formed.  
 
 This attack is carried out using a bluetoothctl wrapper based on Egor Fedorov's with improvements expanding slightly to parts of the GATT menu.
 
+
+### How does it Work?
+We abuse the peripheral bluetooth controller's fault in that it does not timeout connections formed with attacker after an extended period of time despite not being paired.  Funny enough the bluetooth controller appears to have such a timeout capability if there is no ongoing communication for 10 seconds or more.  We recommend bluetooth chipset manufacturers to implement the timeout to apply to ongoing communicating devices that aren't paired or at the very least provide this secuirty option to mitigate availability attacks.
+
+
+Some Issues:
+It appears that bluetoothctl has a large delay in forming connections and disconnects making it not suitable for avaliability attacks.  The tool connects directly to the controller making multiple syncrhonous connections difficult and slow.  Since gattool is depreciated we can no longer utilize it's quick connection with randomized MACs.
+
+
 ## Dependencies
-Device should be using BlueZ Bluetooth Protocol Stack
+Device should be using BlueZ Bluetooth Protocol Stack (MOST LINUX BASED SYSTEMS)
 
 Python3.6.8 or above
 
-## Setting Raspberry PI(VICTIM) for BlueChar Attack
+## Setting Up Vulnerable Raspberry PI(VICTIM) for BlueSmack Attack
+    bluetoothctl
+    discoverable on # Note if you take too long, you will need to do this again
+
+## Setting Up Vulnerable Raspberry PI(VICTIM) for BlueChar Attack
     bluetoothctl
     advertise off
     advertise peripheral
