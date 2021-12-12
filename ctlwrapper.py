@@ -156,7 +156,7 @@ class Bluetoothctl:
             return False
         else:
             res = self.process.expect(
-                ["Failed to connect", "Connection successful", pexpect.EOF]
+                ["Failed to connect", "Connection successful", pexpect.EOF, pexpect.TIMEOUT]
             )
             return res == 1
 
